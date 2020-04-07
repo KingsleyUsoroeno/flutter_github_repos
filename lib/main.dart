@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:provider_architecture/core/models/user.dart';
-import 'package:provider_architecture/locator.dart';
-import 'package:provider_architecture/ui/router.dart';
+import 'package:provider_architecture/ui/home_screen.dart';
 
-import 'core/services/authenticator.dart';
+import 'core/locator.dart';
 
 void main() {
   setupLocator();
@@ -15,16 +12,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<User>(
-      initialData: User.initial(),
-      builder: (context) => locator<AuthenticationService>().userController,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(),
-        initialRoute: 'login',
-        onGenerateRoute: Router.generateRoute,
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(),
+      home: HomeScreen(),
     );
   }
 }
