@@ -8,9 +8,9 @@ class ApiService {
 
   var client = new http.Client();
 
-  Future<GithubResponse> fetchGithubRepos(String keyword, int page) async {
+  Future<GithubResponse> fetchGithubRepos(String keyword, String page) async {
     // Get user profile for id
-    var response = await client.get('https://api.github.com/search/repositories?q=flutter&page=1&per_page=10');
+    var response = await client.get('https://api.github.com/search/repositories?q=$keyword&page=1&per_page=$page');
     print('getUserProfile ${response.body}');
 
     if (response.statusCode == 200) {

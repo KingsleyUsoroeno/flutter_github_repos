@@ -16,14 +16,14 @@ class HomeViewModel with ChangeNotifier {
   }
 
   HomeViewModel() {
-    getGithubRepos("flutter", 10);
+    getGithubRepos("flutter", "40");
   }
 
   ApiService _api = locator<ApiService>();
 
   List<Items> items = [];
 
-  Future getGithubRepos(String keyWord, int pageNumber) async {
+  Future getGithubRepos(String keyWord, String pageNumber) async {
     if (keyWord.isEmpty) {
       setState(ViewState.Idle);
       return null;
