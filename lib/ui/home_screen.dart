@@ -32,7 +32,9 @@ class HomeScreen extends StatelessWidget {
         final item = items[index];
         return ListTile(
           leading: CircleAvatar(
-            backgroundImage: NetworkImage(item.owner.avatarUrl),
+            backgroundImage: NetworkImage(item.owner.avatarUrl.isNotEmpty
+                ? item.owner.avatarUrl
+                : "https://www.codemate.com/wp-content/uploads/2016/02/flutter-logo-round.png"),
           ),
           title: Text(item.name),
           subtitle: Text(item.fullName),
